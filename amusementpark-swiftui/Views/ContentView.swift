@@ -9,8 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            
+            TabView {
+                
+                AttractionView()
+                    .tabItem {
+                        Image(systemName: "face.smiling")
+                        Text("Attraction")
+                    }
+                
+                MyPickView()
+                    .tabItem {
+                        Image(systemName: "heart.fill")
+                        Text("MyPick")
+                    }
+                
+            } //~TabView
+            .accentColor(.myBlue)
+            
+        } //~ZStack
     }
 }
 
