@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AttractionView: View {
     
-    var data = Array(1...10).map{"목록\($0)"}
+    var data = Array(1...29)//.map{"목록\($0)"}
     
     // Grid 형식으로 화면 채움.
     let columns = [GridItem(.adaptive(minimum: 150))]
@@ -27,19 +27,7 @@ struct AttractionView: View {
             
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(data, id:\.self) { i in
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.white)
-                                    .frame(width: 150, height: 170)
-                                    .shadow(color: .myGray, radius: 2, x: 0, y: 1)
-                                VStack {
-                                    Image(systemName: "heart")
-                                    HStack {
-                                        Text(i)
-                                        Image(systemName: "heart.fill")
-                                    } //~HStack
-                                } //~VStack
-                            } //~ZStack
+                            SquareView()
                         } //~ForEach
                     } //~LazyVGrid
                     .padding(.horizontal)
