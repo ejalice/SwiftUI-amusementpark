@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B64F569D2820174900ABD267 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64F569C2820174900ABD267 /* SquareView.swift */; };
 		B6956C21281FB22B002C2233 /* amusementpark_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6956C20281FB22B002C2233 /* amusementpark_swiftuiApp.swift */; };
 		B6956C23281FB22B002C2233 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6956C22281FB22B002C2233 /* ContentView.swift */; };
 		B6956C25281FB22C002C2233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6956C24281FB22C002C2233 /* Assets.xcassets */; };
@@ -14,9 +15,15 @@
 		B6956C32281FB376002C2233 /* AttractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6956C31281FB376002C2233 /* AttractionView.swift */; };
 		B6956C34281FB381002C2233 /* AttractionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6956C33281FB381002C2233 /* AttractionDetailView.swift */; };
 		B6956C36281FB38C002C2233 /* MyPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6956C35281FB38C002C2233 /* MyPickView.swift */; };
+		B6956C38281FB4EA002C2233 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6956C37281FB4EA002C2233 /* Colors.swift */; };
+		B6AC6EF82820F27F0024CAE7 /* AttractionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B6AC6EF62820F27F0024CAE7 /* AttractionModel.xcdatamodeld */; };
+		B6AC6EFA2820F31F0024CAE7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC6EF92820F31F0024CAE7 /* DataController.swift */; };
+		B6AC6EFC2820F9500024CAE7 /* AttractionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC6EFB2820F9500024CAE7 /* AttractionData.swift */; };
+		B6AC6EFE282100130024CAE7 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC6EFD282100130024CAE7 /* DefaultData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B64F569C2820174900ABD267 /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
 		B6956C1D281FB22B002C2233 /* amusementpark-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amusementpark-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6956C20281FB22B002C2233 /* amusementpark_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amusementpark_swiftuiApp.swift; sourceTree = "<group>"; };
 		B6956C22281FB22B002C2233 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -25,6 +32,11 @@
 		B6956C31281FB376002C2233 /* AttractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionView.swift; sourceTree = "<group>"; };
 		B6956C33281FB381002C2233 /* AttractionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailView.swift; sourceTree = "<group>"; };
 		B6956C35281FB38C002C2233 /* MyPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPickView.swift; sourceTree = "<group>"; };
+		B6956C37281FB4EA002C2233 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B6AC6EF72820F27F0024CAE7 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		B6AC6EF92820F31F0024CAE7 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B6AC6EFB2820F9500024CAE7 /* AttractionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionData.swift; sourceTree = "<group>"; };
+		B6AC6EFD282100130024CAE7 /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +90,7 @@
 		B6956C2E281FB345002C2233 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B64F569C2820174900ABD267 /* SquareView.swift */,
 				B6956C22281FB22B002C2233 /* ContentView.swift */,
 				B6956C31281FB376002C2233 /* AttractionView.swift */,
 				B6956C33281FB381002C2233 /* AttractionDetailView.swift */,
@@ -89,6 +102,9 @@
 		B6956C2F281FB34A002C2233 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B6956C37281FB4EA002C2233 /* Colors.swift */,
+				B6AC6EFB2820F9500024CAE7 /* AttractionData.swift */,
+				B6AC6EFD282100130024CAE7 /* DefaultData.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -96,6 +112,8 @@
 		B6956C30281FB356002C2233 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B6AC6EF62820F27F0024CAE7 /* AttractionModel.xcdatamodeld */,
+				B6AC6EF92820F31F0024CAE7 /* DataController.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,10 +188,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6AC6EFC2820F9500024CAE7 /* AttractionData.swift in Sources */,
 				B6956C34281FB381002C2233 /* AttractionDetailView.swift in Sources */,
+				B6956C38281FB4EA002C2233 /* Colors.swift in Sources */,
 				B6956C23281FB22B002C2233 /* ContentView.swift in Sources */,
+				B6AC6EF82820F27F0024CAE7 /* AttractionModel.xcdatamodeld in Sources */,
+				B6AC6EFA2820F31F0024CAE7 /* DataController.swift in Sources */,
 				B6956C36281FB38C002C2233 /* MyPickView.swift in Sources */,
+				B64F569D2820174900ABD267 /* SquareView.swift in Sources */,
 				B6956C21281FB22B002C2233 /* amusementpark_swiftuiApp.swift in Sources */,
+				B6AC6EFE282100130024CAE7 /* DefaultData.swift in Sources */,
 				B6956C32281FB376002C2233 /* AttractionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +399,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B6AC6EF62820F27F0024CAE7 /* AttractionModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B6AC6EF72820F27F0024CAE7 /* Model.xcdatamodel */,
+			);
+			currentVersion = B6AC6EF72820F27F0024CAE7 /* Model.xcdatamodel */;
+			path = AttractionModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B6956C15281FB22B002C2233 /* Project object */;
 }

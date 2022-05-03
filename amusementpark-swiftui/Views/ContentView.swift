@@ -13,7 +13,8 @@ struct ContentView: View {
             
             TabView {
                 
-                AttractionView()
+                //AttractionView(attractionData: AttractionData.sampleData)
+                AttractionView(attractionData: AttractionData.sampleData)
                     .tabItem {
                         Image(systemName: "face.smiling")
                         Text("Attraction")
