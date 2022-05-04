@@ -9,12 +9,11 @@ import SwiftUI
 
 struct AttractionView: View {
 
-    //@Environment(\.managedObjectContext) var managedObjContext
-    //@FetchRequest(sortDescriptors: []) var attractions: FetchedResults<Attraction>
+    @Environment(\.managedObjectContext) var managedObjContext
+    @FetchRequest(sortDescriptors: []) var attractions: FetchedResults<Attraction>
     
-    //@State var selectedAttraction = Attraction()
+    @State var selectedAttraction = Attraction()
     @State var changeView: Bool = false
-    //@State var isLiked: Bool = false
     
     @AppStorage("likeDra") private var likeDra = UserDefaults.standard.bool(forKey: "likeDra")
     @AppStorage("likeMega") private var likeMega = UserDefaults.standard.bool(forKey: "likeMega")
@@ -30,8 +29,6 @@ struct AttractionView: View {
     
     //init() {
     init(attractionData: [AttractionData]) {
-        UITableView.appearance().backgroundColor = .clear
-        
         self.attractionData = attractionData
     }
 
@@ -43,26 +40,15 @@ struct AttractionView: View {
                 
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
-                        ForEach(attractionData, id:\.self) { attraction in
-                        //ForEach(attractions, id: \.self) { attraction in
-//                            AttractionDataController().CreateAttraction(name: "A", want: 0, done: 0, like: false, height: "B", place: "C", descript: "D", context: managedObjContext)
-//
+                        ForEach(attractionData, id:\.id) { attraction in
                             ZStack {
                                 VStack {
-                                    
-                                    // Image Click
-                                    Button(action: {
-                                        self.changeView.toggle()
-                                    }) {
-                                        //Image(attraction.picture_code)
+                                    NavigationLink(destination: AttractionDetailView(attraction: attraction)){
                                         Image(attraction.name)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 150, height: 100)
                                     }
-                                    
-                                    // Change View
-                                    NavigationLink(destination: AttractionDetailView(), isActive: $changeView) {EmptyView()}.disabled(true)
                                 
                                     // Attraction
                                     HStack {
@@ -81,10 +67,7 @@ struct AttractionView: View {
                                             } else if attraction.name == "파에톤" {
                                                 likePare.toggle()
                                             }
-                                            //isLiked.toggle()
                                         }){
-//                                            Image(systemName:  isLiked == true ? "heart.fill" : "heart")
-//                                                .foregroundColor(Color.myRed)
                                             if attraction.name == "드라켄" {
                                                 Image(systemName:  likeDra == true ? "heart.fill" : "heart")
                                                     .foregroundColor(Color.myRed)
@@ -106,7 +89,6 @@ struct AttractionView: View {
                                             }
                                         }
                                     }
-                                    
                                 } //~VStack
                             } //~ZStack
                         } //~ForEach
@@ -115,10 +97,6 @@ struct AttractionView: View {
             
                 } // ~ScrollView
                 .navigationTitle("Attraction 🎡")
-//                .navigationBarItems(trailing: Button("경주월드") {
-//                    AttractionDataController().CreateAttraction(name: "드라켄", want: 0, done: 0, like: false, height: "3", place: "a", descript: "kk", context: managedObjContext)
-//                    AttractionDataController().CreateAttraction(name: "범퍼카", want: 0, done: 0, like: false, height: "2", place: "B", descript: "범퍼카임", context: managedObjContext)
-//                })
                 
             }
         } //~NavigationView

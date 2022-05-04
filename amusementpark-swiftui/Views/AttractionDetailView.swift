@@ -9,72 +9,157 @@ import SwiftUI
 
 struct AttractionDetailView: View {
     
-    @State var infoList: [String] = ["위치", "탑승인원", "키제한", "특징"]
+    @Environment(\.managedObjectContext) var managedObjContext
+    //@State var want: Int64 = 0
+    @State var editMode: Bool = false
     
-    init() {
+    @AppStorage("wantDra") private var wantDra = UserDefaults.standard.integer(forKey: "wantDra")
+    @AppStorage("wantMega") private var wantMega = UserDefaults.standard.integer(forKey: "wantMega")
+    @AppStorage("wantBumper") private var wantBumper = UserDefaults.standard.integer(forKey: "wantBumper")
+    @AppStorage("wantCrake") private var wantCrake = UserDefaults.standard.integer(forKey: "wantCrake")
+    @AppStorage("wantTorna") private var wantTorna = UserDefaults.standard.integer(forKey: "wantTorna")
+    @AppStorage("wantPare") private var wantPare = UserDefaults.standard.integer(forKey: "wantPare")
+    
+    
+    var attraction: AttractionData
+    
+    
+    init(attraction: AttractionData) {
         UITableView.appearance().backgroundColor = .clear
+        self.attraction = attraction
     }
     
     var body: some View {
-        NavigationView {
             ZStack {
                 Color.myWhite.ignoresSafeArea()
-                //VStack {
-//                Image("드라켄")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 260, height: 150)
-                List {
-//                    Section(header: Text("Image")) {
+
+                Form {
                     HStack {
                         Spacer()
-                    Image("드라켄")
+                        Image(attraction.name)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 260, height: 150)
                         Spacer()
-                    //1246 × 858
                     }
-//                    }
 
-                        
                         //Information
                         Section(header: Text("Information")) {
-                            // ForEach로 해도 상관없고, List로 해도 상관없음.
-                            // 단, List안에 ForEach로 하면, onDelete 추가 했을 때, 삭제할 수 있음.
-                            //HStack {
-                            ForEach(infoList, id: \.self) { info in
-                                HStack{
-                                    Text(info)
-                                    Spacer()
-                                    Text(info)
-
-                                }
+                            HStack {
+                                Text("위치")
+                                Spacer()
+                                Text(attraction.place)
                             }
-
+                            HStack {
+                                Text("탑승인원")
+                                Spacer()
+                                Text(attraction.people)
+                            }
+                            HStack {
+                                Text("키제한")
+                                Spacer()
+                                Text(attraction.height)
+                            }
+                            HStack {
+                                Text("특징")
+                                Spacer()
+                                Text(attraction.descript)
+                            }
                         }
                     
                         .textCase(nil)
                         
                         // Plan
                         Section(header: Text("Plan")) {
-                            Text("HI")
+                            if editMode {
+                            HStack {
+                                Text("탈 횟수")
+                                Spacer()
+                                    .frame(width: 50)
+                                
+                                if attraction.name == "드라켄" {
+                                    Stepper(value: $wantDra, in: 0...10) {
+                                        Text("\(wantDra)")
+                                            .foregroundColor(Color.gray)
+                                        Text("회")
+                                    }
+                                } else if attraction.name == "메가드롭" {
+                                    Stepper(value: $wantMega, in: 0...10) {
+                                        Text("\(wantMega)")
+                                            .foregroundColor(Color.gray)
+                                        Text("회")
+                                    }
+                                } else if attraction.name == "범퍼카" {
+                                    Stepper(value: $wantBumper, in: 0...10) {
+                                        Text("\(wantBumper)")
+                                            .foregroundColor(Color.gray)
+                                        Text("회")
+                                    }
+                                } else if attraction.name == "크라크" {
+                                    Stepper(value: $wantCrake, in: 0...10) {
+                                        Text("\(wantCrake)")
+                                            .foregroundColor(Color.gray)
+                                        Text("회")
+                                    }
+                                } else if attraction.name == "토네이도" {
+                                    Stepper(value: $wantTorna, in: 0...10) {
+                                        Text("\(wantTorna)")
+                                            .foregroundColor(Color.gray)
+                                        Text("회")
+                                    }
+                                } else if attraction.name == "파에톤" {
+                                    Stepper(value: $wantPare, in: 0...10) {
+                                        Text("\(wantPare)")
+                                            .foregroundColor(Color.gray)
+                                        Text("회")
+                                    }
+                                }
+                            }
+                            } else {
+                                HStack {
+                                    Text("탈 횟수")
+                                    Spacer()
+                                        .frame(width: 50)
+                                    if attraction.name == "드라켄" {
+                                        Text("\(wantDra)")
+                                    } else if attraction.name == "메가드롭" {
+                                        Text("\(wantMega)")
+                                    } else if attraction.name == "범퍼카" {
+                                        Text("\(wantBumper)")
+                                    } else if attraction.name == "크라크" {
+                                        Text("\(wantCrake)")
+                                    } else if attraction.name == "토네이도" {
+                                        Text("\(wantTorna)")
+                                    } else if attraction.name == "파에톤" {
+                                        Text("\(wantPare)")
+                                    }
+                                    
+                                    Text("회")
+                                }
+                            }
+//                            Button(action: {
+//                                AttractionDataController().CreateAttraction(name: attraction.name, want: 0, context: managedObjContext)
+//                            }){
+//                                Text("ADD")
+//                            }
                         }
                         .textCase(nil)
                     }//~Form
                 .listStyle(InsetGroupedListStyle())
                 
             }//~ZStack
-            //}
-            .navigationTitle("드라켄")
-            .navigationBarItems(trailing: Button("Edit"){})
-        }//~NavigationView
+
+            .navigationTitle(attraction.name)
+            .navigationBarItems(trailing: Button(editMode==false ? "Edit" : "Save"){
+                editMode.toggle()
+            })
     }//~body
     
 }//~struct
 
+
 struct AttractionDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        AttractionDetailView()
+        AttractionDetailView(attraction: AttractionData.sampleData[0])
     }
 }

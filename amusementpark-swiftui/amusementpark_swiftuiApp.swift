@@ -10,12 +10,12 @@ import SwiftUI
 @main
 struct amusementpark_swiftuiApp: App {
     
-    //@StateObject private var attractionDataController = AttractionDataController()
+    @StateObject private var attractionDataController = AttractionDataController()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                //.environment(\.managedObjectContext, attractionDataController.container.viewContext)
+                .environment(\.managedObjectContext, attractionDataController.container.viewContext)
         }
     }
 }

@@ -34,15 +34,10 @@ class AttractionDataController: ObservableObject{
         }
     }
     
-    func CreateAttraction(name: String, want: Int64, done: Int64, like: Bool, height: String, place: String, descript: String, context: NSManagedObjectContext) {
+    func CreateAttraction(name: String, want: Int64, context: NSManagedObjectContext) {
         let attraction = Attraction(context: context)
         attraction.id = UUID()
         attraction.want = want
-        attraction.done = done
-        attraction.like = like
-        attraction.height = height
-        attraction.place = place
-        attraction.descript = descript
         
         save(context: context)
     }
