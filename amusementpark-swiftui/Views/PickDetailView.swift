@@ -7,15 +7,18 @@
 
 import SwiftUI
 
+
+
 struct PickDetailView: View {
     
     @State var editMode2: Bool = false
     @State var want: Int = 0
     @State var done: Int = 0
+    @State var name: String
     
-    init() {
-        UITableView.appearance().backgroundColor = .clear
-    }
+//    init() {
+//        UITableView.appearance().backgroundColor = .clear
+//    }
     
     var body: some View {
         ZStack {
@@ -63,15 +66,15 @@ struct PickDetailView: View {
             }
         }
             
-        .navigationTitle("드라켄")
+        .navigationTitle(name)
         .navigationBarItems(trailing: Button(editMode2==false ? "Edit" : "Save"){editMode2.toggle()})
 
     }
     }
 }
 
-struct PickDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        PickDetailView()
-    }
-}
+//struct PickDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PickDetailView()
+//    }
+//}
