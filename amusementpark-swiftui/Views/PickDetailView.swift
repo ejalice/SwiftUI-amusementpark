@@ -17,9 +17,6 @@ struct PickDetailView: View {
     @State var wantName: String
     @State var doneName: String
     
-    @State var fakeWant: Int = 0
-    @State var fakeDone: Int = 0
-    
     
 //    init() {
 //        UITableView.appearance().backgroundColor = .clear
@@ -38,19 +35,27 @@ struct PickDetailView: View {
                         Text("탈 횟수")
                         Spacer()
                             .frame(width:50)
-                        Stepper(value: $fakeWant) {
-                            Text("\(changeWant(wantName:wantName, fakeWant: fakeWant))").foregroundColor(Color.gray)
+                        Stepper(onIncrement: {
+                            wantIncrementStep(wantName: wantName)
+                        }, onDecrement: {
+                            wantDecrementStep(wantName: wantName)
+                        }, label: {
+                            Text("\(UserDefaults.standard.integer(forKey: wantName))").foregroundColor(Color.gray)
                             Text("회")
-                        }
+                        })
                     }
                     HStack {
                         Text("탄 횟수")
                         Spacer()
                             .frame(width:50)
-                        Stepper(value: $fakeDone, in: 0...UserDefaults.standard.integer(forKey: doneName)) {
-                            Text("\(changeDone(doneName: doneName, fakeDone: fakeDone))").foregroundColor(Color.gray)
+                        Stepper(onIncrement: {
+                            doneIncrementStep(wantName: wantName, doneName: doneName)
+                        }, onDecrement: {
+                            doneDecrementStep(wantName: wantName, doneName: doneName)
+                        }, label: {
+                            Text("\(UserDefaults.standard.integer(forKey: doneName))").foregroundColor(Color.gray)
                             Text("회")
-                        }
+                        })
                     }
                 } else {
                     HStack {
@@ -82,23 +87,28 @@ struct PickDetailView: View {
     }
 }
 
-
-func changeWant(wantName: String, fakeWant: Int) -> Int {
-    var defaultWant = UserDefaults.standard.integer(forKey: wantName)
-    var finalWant = defaultWant + fakeWant
-    
-    UserDefaults.standard.set(finalWant, forKey: wantName)
-    
-    return finalWant
+func wantIncrementStep(wantName: String) {
+    if UserDefaults.standard.integer(forKey: wantName) < 10 {
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: wantName)+1, forKey: wantName)
+    }
 }
 
-func changeDone(doneName: String, fakeDone: Int) -> Int {
-    var defaultDone = UserDefaults.standard.integer(forKey: doneName)
-    var finalDone = defaultDone + fakeDone
-    
-    UserDefaults.standard.set(finalDone, forKey: doneName)
-    
-    return finalDone
+func doneIncrementStep(wantName: String, doneName:String) {
+    if UserDefaults.standard.integer(forKey: wantName) > UserDefaults.standard.integer(forKey: doneName) {
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: doneName)+1, forKey: doneName)
+    }
+}
+
+func wantDecrementStep(wantName: String) {
+    if UserDefaults.standard.integer(forKey: wantName) > 0 {
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: wantName)-1, forKey: wantName)
+    }
+}
+
+func doneDecrementStep(wantName: String, doneName:String) {
+    if UserDefaults.standard.integer(forKey: wantName) > 0 {
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: doneName)-1, forKey: doneName)
+    }
 }
 
 //struct PickDetailView_Previews: PreviewProvider {
