@@ -16,25 +16,28 @@ struct PickListView: View {
         List {
             ForEach(names, id:\.self) { shortName in
                 let result = convert(shortName: shortName)
+                let want = UserDefaults.standard.integer(forKey: result.wantName)
+                let done = UserDefaults.standard.integer(forKey: result.doneName)
                 
                 if selectedSide == 0 {
-                    if UserDefaults.standard.integer(forKey: result.wantName)>0 {
-                        NavigationLink(destination: PickDetailView(name: shortName)){
+                    if want>0 {
+                        NavigationLink(destination: PickDetailView(korName: result.korName, wantName: result.wantName, doneName: result.doneName)){
                             Text(result.korName)
                         }
                     }
                 }
-//                else if selectedSide == 1 {
-//                    if UserDefaults.standard.integer(forKey: result.wantName)>UserDefaults.standard.integer(forKey: result.doneName){
-//                        NavigationLink(destination: PickDetailView(), label: {Text("\(result.korName)")})
-//                    }
-//                }
-//
-//                else {
-//                    if UserDefaults.standard.integer(forKey: result.wantName) == UserDefaults.standard.integer(forKey: result.doneName) && UserDefaults.standard.integer(forKey: result.wantName)>0{
-//                        NavigationLink(destination: PickDetailView(), label: {Text("\(result.korName)")})
-//                    }
-//                }
+                
+                else if selectedSide == 1 {
+                    if want>done{
+                        NavigationLink(destination: PickDetailView(korName: result.korName, wantName: result.wantName, doneName: result.doneName), label: {Text("\(result.korName)")})
+                    }
+                }
+
+                else {
+                    if want == done && want>0{
+                        NavigationLink(destination: PickDetailView(korName: result.korName, wantName: result.wantName, doneName: result.doneName), label: {Text("\(result.korName)")})
+                    }
+                }
                 
             } //~ForEach
         } //~List
