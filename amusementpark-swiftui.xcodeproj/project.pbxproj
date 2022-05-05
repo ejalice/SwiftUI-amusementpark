@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B64F569D2820174900ABD267 /* SquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64F569C2820174900ABD267 /* SquareView.swift */; };
 		B6956C21281FB22B002C2233 /* amusementpark_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6956C20281FB22B002C2233 /* amusementpark_swiftuiApp.swift */; };
 		B6956C23281FB22B002C2233 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6956C22281FB22B002C2233 /* ContentView.swift */; };
 		B6956C25281FB22C002C2233 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6956C24281FB22C002C2233 /* Assets.xcassets */; };
@@ -21,10 +20,10 @@
 		B6AC6EFC2820F9500024CAE7 /* AttractionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AC6EFB2820F9500024CAE7 /* AttractionData.swift */; };
 		B6FBFC9A2822449B00C583EE /* PickDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FBFC992822449B00C583EE /* PickDetailView.swift */; };
 		B6FBFC9C2822625400C583EE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FBFC9B2822625400C583EE /* MainView.swift */; };
+		B6FBFC9E2823771D00C583EE /* PickListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FBFC9D2823771D00C583EE /* PickListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B64F569C2820174900ABD267 /* SquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareView.swift; sourceTree = "<group>"; };
 		B6956C1D281FB22B002C2233 /* amusementpark-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "amusementpark-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6956C20281FB22B002C2233 /* amusementpark_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amusementpark_swiftuiApp.swift; sourceTree = "<group>"; };
 		B6956C22281FB22B002C2233 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -39,6 +38,7 @@
 		B6AC6EFB2820F9500024CAE7 /* AttractionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionData.swift; sourceTree = "<group>"; };
 		B6FBFC992822449B00C583EE /* PickDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickDetailView.swift; sourceTree = "<group>"; };
 		B6FBFC9B2822625400C583EE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B6FBFC9D2823771D00C583EE /* PickListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +92,7 @@
 		B6956C2E281FB345002C2233 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B64F569C2820174900ABD267 /* SquareView.swift */,
+				B6FBFC9D2823771D00C583EE /* PickListView.swift */,
 				B6956C22281FB22B002C2233 /* ContentView.swift */,
 				B6956C31281FB376002C2233 /* AttractionView.swift */,
 				B6956C33281FB381002C2233 /* AttractionDetailView.swift */,
@@ -200,9 +200,9 @@
 				B6AC6EF82820F27F0024CAE7 /* AttractionModel.xcdatamodeld in Sources */,
 				B6AC6EFA2820F31F0024CAE7 /* DataController.swift in Sources */,
 				B6956C36281FB38C002C2233 /* MyPickView.swift in Sources */,
-				B64F569D2820174900ABD267 /* SquareView.swift in Sources */,
 				B6956C21281FB22B002C2233 /* amusementpark_swiftuiApp.swift in Sources */,
 				B6956C32281FB376002C2233 /* AttractionView.swift in Sources */,
+				B6FBFC9E2823771D00C583EE /* PickListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
