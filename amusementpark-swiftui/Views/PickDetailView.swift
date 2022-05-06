@@ -11,16 +11,14 @@ import SwiftUI
 
 struct PickDetailView: View {
     
-    @State var editMode2: Bool = false
-   
-    @State var korName: String
-    @State var wantName: String
-    @State var doneName: String
-    
-    
 //    init() {
 //        UITableView.appearance().backgroundColor = .clear
 //    }
+//
+    @State var editMode2: Bool = false
+    @State var korName: String
+    @State var wantName: String
+    @State var doneName: String
     
     var body: some View {
         
